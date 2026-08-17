@@ -1,4 +1,4 @@
-# 1. Guia Prático de Regex
+# Guia Prático de Regex
 
 Este documento reúne expressões regulares úteis para localizar, validar, formatar e manipular textos.
 
@@ -13,9 +13,10 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 
 > **Importante:** embora a sintaxe básica seja praticamente a mesma, alguns recursos podem variar entre ferramentas (como grupos de captura, lookaheads, lookbehinds e funções de substituição).
 
----
+<br>
 
-# 2. Linhas e quebras de linha
+### 1. Exemplos de Regex
+## 1.1 Linhas e quebras de linha
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -29,9 +30,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Remover espaços no início da linha | `^[ \t]+` | Deixe vazio | Remove espaços e tabulações no início da linha. |
 | Remover espaços no final da linha | `[ \t]+(?=\r?$)` | Deixe vazio | Remove espaços e tabulações no final da linha. |
 
----
+<br>
 
-# 3. Documentos (CPF e CNPJ)
+## 1.2 Documentos (CPF e CNPJ)
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -48,9 +49,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Identificar CNPJ alfanumérico formatado | `\b[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}\/[A-Z0-9]{4}-\d{2}\b` | — | Apenas identifica. |
 | Identificar CNPJ alfanumérico sem formatação | `\b[A-Z0-9]{12}\d{2}\b` | — | Apenas identifica. |
 
----
+<br>
 
-# 6. Organização de textos
+## 1.3 Organização de textos
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -62,9 +63,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Encontrar linhas que contenham determinada palavra | `^.*\bfalha\b.*$` | — | Encontra linhas que contenham a palavra "falha". |
 | Remover um prefixo | `^Item:\s*` | Deixe vazio | Remove o prefixo `Item:` do início da linha. |
 
----
+<br>
 
-# 7. Manipulação de listas
+## 1.4 Manipulação de listas
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -73,9 +74,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Transformar lista em valores SQL | `^(.+?)(?=\r?$)` | `'$1',` | Útil para montar cláusulas `IN` em SQL. |
 | Remover a última vírgula de uma lista | `,(?=\s*$)` | Deixe vazio | Remove apenas a última vírgula da seleção ou do texto. |
 
----
+<br>
 
-# 8. Identificação de dados
+## 1.5 Identificação de dados
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -86,9 +87,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Encontrar texto entre aspas | `"[^"]*"` | — | Encontra todo o conteúdo entre aspas duplas. |
 | Encontrar texto entre parênteses | `\([^)]*\)` | — | Encontra todo o conteúdo entre parênteses. |
 
----
+<br>
 
-# 9. Logs
+## 1.6 Logs
 
 | O que faz | Regex (Localizar) | Substituir | Observação |
 |-----------|-------------------|------------|------------|
@@ -98,9 +99,17 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | Encontrar códigos HTTP 5xx | `\b5\d{2}\b` | — | Identifica códigos HTTP de erro do servidor (500–599). |
 | Encontrar UUID | `\b[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}\b` | — | Identifica UUIDs no formato padrão (versões 1 a 5). |
 
----
+<br>
 
-# 10. Principais símbolos
+## 1.7 Outros
+| O que faz | Regex (Localizar) | Substituir | Observação |
+|-----------|-------------------|------------|------------|
+| Encontrar um texto específico único em uma linha | `^---$` | `<br>` | Só vai encontrar se ele for único na linha |
+| Encontrar um texto específico | `(?<!-)---(?!-)` | `xpto` | Vai diferenciar `---` de `----` ou qualquer outra variação |
+
+<br>
+
+## 2. Principais símbolos
 
 | Símbolo | Significado |
 |---------|-------------|
@@ -127,9 +136,9 @@ As expressões apresentadas seguem a sintaxe mais comum das Expressões Regulare
 | `\|` | Operador "ou" |
 | `$1`, `$2` | Referência aos grupos capturados (a sintaxe pode variar conforme a ferramenta) |
 
----
+<br>
 
-# 11. Observações
+# 3. Observações
 
 - Regex normalmente valida apenas o **formato** de uma informação.
 - A sintaxe de substituição (`$1`, `\1`, etc.) pode variar conforme a ferramenta utilizada.
