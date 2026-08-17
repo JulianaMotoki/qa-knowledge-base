@@ -23,7 +23,7 @@ Grupos capturados:
 - Grupo 1 → `123`
 - Grupo 2 → `45`
 
----
+<br>
 
 ## 2. Lookahead
 
@@ -51,7 +51,7 @@ em:
 arquivo.txt
 ```
 
----
+<br>
 
 ## 3. Lookbehind
 
@@ -79,7 +79,7 @@ em:
 R$ 100
 ```
 
----
+<br>
 
 ## 4. Funções de substituição
 
