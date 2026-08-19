@@ -1,0 +1,3 @@
+Dado que o usuário esteja cadastrado
+Quando o usuário informar seus dados
+Então o sistema deve permitir o acesso
